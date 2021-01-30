@@ -191,10 +191,10 @@ namespace TicTacToe
         public void Print()
         {
             Console.Clear();
-            Console.WriteLine(
-                    board[0] + board[1] + board[2] + "\n" +
-                    board[3] + board[4] + board[5] + "\n" +
-                    board[6] + board[7] + board[8]
+            Console.WriteLine("\n\n\n"+
+                    "\t\t"+board[0] + board[1] + board[2] + "\n" +
+                    "\t\t"+board[3] + board[4] + board[5] + "\n" +
+                    "\t\t"+board[6] + board[7] + board[8]
                 );           
         }
 
