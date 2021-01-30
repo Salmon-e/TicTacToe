@@ -1,14 +1,12 @@
 ﻿using System;
-using System.Collections;
-using System.Text;
 using System.Linq;
 using System.Collections.Generic;
 
 namespace TicTacToe
 {
     class State
-    {
-        static int actionsApplied = 0;
+    {       
+
         public string[] board = {"_", "_", "_", "_", "_", "_", "_", "_", "_"};
         
         public State()
@@ -26,8 +24,7 @@ namespace TicTacToe
             
             State state = new State(this);
             if (state.board[a.slot] == "_" && !IsTerminal())
-            {
-                actionsApplied++;
+            {                
                 state.board[a.slot] = a.player;
                 
             }            
@@ -159,7 +156,7 @@ namespace TicTacToe
             {
                 for (int i = 0; i < actions.Count; i++)
                 {
-                    actions[i].value = MinValue(state);
+                    actions[i].value = MinValue(state.ApplyAction(actions[i]));
                 }
                 
                 foreach(Action a in actions)
@@ -177,7 +174,7 @@ namespace TicTacToe
             {
                 for (int i = 0; i < actions.Count; i++)
                 {
-                    actions[i].value = MaxValue(state);                    
+                    actions[i].value = MaxValue(state.ApplyAction(actions[i]));                    
                 }
 
                 foreach (Action a in actions)
@@ -193,12 +190,12 @@ namespace TicTacToe
         }
         public void Print()
         {
-            Console.WriteLine("\n" +
+            Console.Clear();
+            Console.WriteLine(
                     board[0] + board[1] + board[2] + "\n" +
                     board[3] + board[4] + board[5] + "\n" +
                     board[6] + board[7] + board[8]
-                );
-            Console.WriteLine(actionsApplied);
+                );           
         }
 
     }
