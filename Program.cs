@@ -6,7 +6,8 @@ namespace TicTacToe
     class Program
     {
         static void Main()
-        {            
+        {
+            
             State state = new State();            
             bool gameOver = false;
             Console.WriteLine("Who would you like to play as? X/O");
@@ -33,11 +34,12 @@ namespace TicTacToe
                 
                                
                 
-            }          
+            }           
             
             
             
         }
+       
     }
 }
 
